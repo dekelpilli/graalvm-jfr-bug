@@ -1,0 +1,12 @@
+{
+  "enableUrlProtocols": [
+    "http"
+  ],
+  "initializeAtBuildTime": [
+    "com.taoensso.timbre.slf4j.TimbreLogger",
+    "com.taoensso.timbre.slf4j.TimbreLoggerFactory",
+    "com.taoensso.timbre.slf4j.TimbreServiceProvider",
+    "org.slf4j.helpers.BasicMDCAdapter",
+    "org.slf4j.helpers.BasicMDCAdapter$1"
+  ]
+}
