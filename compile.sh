@@ -15,6 +15,8 @@ clojure -M:uberjar --main-class "graalmem.core"
 native-image -jar target/graal-memory-test.jar \
         -o target/graal-memory-test \
         -Ob \
+        --diagnostics-mode \
+        --bundle-create=jfr_issue.nib \
         --enable-monitoring=heapdump,jvmstat,jfr \
         --install-exit-handlers \
         --features=clj_easy.graal_build_time.InitClojureClasses \

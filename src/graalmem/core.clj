@@ -33,22 +33,7 @@
                                 (.stop server)
                                 (println "Server stopped")))))
 
-(defn- register-deep-merge! []
-  (letfn [(reconcile-keys [val-in-result val-in-latter]
-            (if (and (map? val-in-result)
-                     (map? val-in-latter))
-              (merge-with reconcile-keys val-in-result val-in-latter)
-              val-in-latter))
-          (reconcile-maps [result latter]
-            (merge-with reconcile-keys result latter))
-          (deep-merge [& maps]
-            (reduce reconcile-maps maps))]
-    (defmethod aero/reader 'deep-merge
-      [_ _ value]
-      (apply deep-merge value))))
-
 (defn start! [port]
-  (register-deep-merge!)
   (println (format "Starting http server on port: %s" port))
   (-> (jio/resource "config.edn") aero/read-config str) ;magic line
   (println (format "Config: %s" (prism/config)))

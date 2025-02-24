@@ -5,3 +5,6 @@ classes
 *.jfr
 .nrepl-port
 .cpcache
+reports
+*.nib
+*.output/
